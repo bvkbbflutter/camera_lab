@@ -1,0 +1,19 @@
+{
+  "name": "camera-lab-server",
+  "version": "1.0.0",
+  "description": "Camera Lab POC backend — receives images (Base64 JSON or multipart), stores them in assets/, extracts embedded EXIF metadata and indexes it in db.json",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "SIMULATE=true node --watch src/index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^2.0.2"
+  }
+}

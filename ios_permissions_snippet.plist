@@ -1,0 +1,15 @@
+<!--
+  This project was generated without running `flutter create`, so it has
+  no ios/ platform folder yet (see README "First-time setup").
+  After you run `flutter create .`, merge these keys into
+  ios/Runner/Info.plist, inside the outer <dict>.
+-->
+
+<key>NSCameraUsageDescription</key>
+<string>Camera Lab needs camera access to capture photos for the metadata/format benchmarking experiments.</string>
+
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Camera Lab embeds GPS coordinates into captured photos' EXIF metadata, as part of comparing what different image formats preserve. Location is only used while the app is open and can be turned off in Settings.</string>
+
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>Camera Lab can save processed images to your photo library so you can inspect them in the Photos app's own metadata viewer.</string>

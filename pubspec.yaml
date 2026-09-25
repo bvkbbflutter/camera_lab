@@ -1,0 +1,75 @@
+name: camera_lab
+description: >
+  Camera Lab — a Flutter POC for benchmarking camera capture, image formats,
+  compression and EXIF/GPS metadata embedding, verification and upload.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Camera capture, resolutions, flash, focus, exposure, zoom, front/back.
+  camera: ^0.11.0+2
+
+  # Pixel-level decode/resize/rotate/encode for JPEG/PNG/WebP.
+  # EXIF is embedded/verified by our own code in lib/services/metadata/
+  # (raw TIFF/APP1/eXIf/WebP-chunk writer) so metadata behavior is fully
+  # under our control and independently verifiable, rather than however a
+  # black-box plugin happens to implement it.
+  image: ^4.3.0
+
+  # HTTP client for Base64 JSON and multipart uploads, with progress
+  # callbacks and configurable connect/send/receive timeouts.
+  dio: ^5.7.0
+  # dio depends on http_parser but doesn't re-export its MediaType class,
+  # which MultipartFile.fromBytes needs for an explicit contentType.
+  http_parser: ^4.0.2
+
+  # Device location for GPS EXIF tags.
+  # geolocator: ^13.0.2
+
+  # Camera + location runtime permission handling (Android/iOS).
+  permission_handler: ^11.3.1
+
+  # App-local directories for captured/processed images and the upload queue.
+  path_provider: ^2.1.4
+
+  # Device manufacturer/model, used for the EXIF Make/Model tags when the
+  # camera plugin itself doesn't expose that information.
+  device_info_plus: ^11.1.1
+
+  # Persisted user settings (location on/off, require-location, DPI default,
+  # upload endpoint, timeouts, retry policy).
+  shared_preferences: ^2.3.3
+
+  # Stable, collision-resistant local ids for captures/uploads/benchmark runs.
+  uuid: ^4.5.1
+
+  # Connectivity-aware network test screen (Wi-Fi / mobile / offline).
+  connectivity_plus: ^6.1.0
+
+  # CSV export for benchmark results (JSON export needs no package).
+  csv: ^6.0.0
+
+  # Share sheet for exporting benchmark CSV/JSON.
+  share_plus: ^10.1.2
+
+  intl: ^0.19.0
+
+  # State management for the camera controller and upload queue.
+  provider: ^6.1.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true

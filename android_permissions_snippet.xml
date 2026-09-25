@@ -1,0 +1,38 @@
+<!--
+  This project was generated without running `flutter create`, so it has
+  no android/ platform folder yet (see README "First-time setup").
+  After you run `flutter create .` to generate one, merge these entries
+  into android/app/src/main/AndroidManifest.xml, inside the <manifest> tag
+  and above <application>.
+-->
+
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.INTERNET" />
+
+<!-- Lets the app reach a Camera Lab server on your LAN over plain HTTP
+     during development. Remove for a production/HTTPS-only build, or
+     scope it with a network_security_config.xml instead of allowing all
+     cleartext traffic. -->
+<!-- Add android:usesCleartextTraffic="true" to the <application> tag,
+     or use the network_security_config below. -->
+
+<!--
+  android/app/src/main/res/xml/network_security_config.xml (recommended
+  over usesCleartextTraffic="true"):
+
+  <?xml version="1.0" encoding="utf-8"?>
+  <network-security-config>
+      <domain-config cleartextTrafficPermitted="true">
+          <domain includeSubdomains="true">10.0.2.2</domain>
+          <domain includeSubdomains="true">192.168.0.0/16</domain>
+      </domain-config>
+  </network-security-config>
+
+  ...then on <application>:
+  android:networkSecurityConfig="@xml/network_security_config"
+-->
+
+<!-- Also set, on <application> or via build.gradle: minSdkVersion 21+
+     (camera/geolocator/permission_handler all require it). -->
